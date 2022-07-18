@@ -1,3 +1,4 @@
+import React from 'react';
 export default function Posts(){
     const postInfos=[
         {
@@ -17,7 +18,11 @@ export default function Posts(){
           curtidoNumero:"99.159"
         }
       ]
+      
+      
       function Post(props){
+        const [like,setLike]=React.useState("heart-outline");
+        const [vermelho,setVermelho]=React.useState("preto");
         return(
           <div class="post">
             <div class="topo">
@@ -31,13 +36,27 @@ export default function Posts(){
             </div>
   
             <div class="conteudo">
-              <img src={props.conteudo} />
+              <img  src={props.conteudo} onClick={()=>{
+        
+        if(like ==="heart-outline"){
+          setLike("heart");
+          setVermelho("vermelho");
+        }}} />
             </div>
   
             <div class="fundo">
               <div class="acoes">
                 <div>
-                  <ion-icon name="heart-outline"></ion-icon>
+                  <ion-icon name={like} onClick={()=>{
+        
+        if(like ==="heart-outline"){
+          setLike("heart");
+          setVermelho("vermelho");
+        }else{
+          setLike("heart-outline");
+          setVermelho("preto");
+        }
+      }} class={vermelho}></ion-icon>
                   <ion-icon name="chatbubble-outline"></ion-icon>
                   <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
@@ -65,6 +84,7 @@ export default function Posts(){
             curtidoImg={post.usuarioImg}
             curtidoNome={post.curtidoNome}
             curtidoNumero={post.curtidoNumero}
+            
             />)} 
           </div>
     )

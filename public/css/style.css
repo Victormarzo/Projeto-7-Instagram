@@ -309,6 +309,14 @@ body {
 .logo-mobile, .instagram-mobile {
   display: none !important;
 }
+.vermelho{
+  color: red;
+  visibility: visible;
+}
+.preto{
+  color:black;
+  visibility: visible;
+}
 
 @media (max-width: 935px) {
   .sidebar {
